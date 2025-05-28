@@ -1,5 +1,5 @@
 [project]
-name = "apifactory"
+name = "py-apifactory"
 version = "0.1.0"
 description = """
     Web framework for API-first development via OpenAPI specification with included validation according
