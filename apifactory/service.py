@@ -39,15 +39,7 @@ class Service(Starlette):
                 if method in allowed_methods and 'operationId' in operation:
                     operation_id = operation['operationId']
                     controller = controllers[operation_id]
-
-                    async def endpoint(request):
-                        result = await controller({
-                            **request.scope['openapi'].parameters.path,
-                            **request.scope['openapi'].parameters.query,
-                            'body': request.scope['openapi'].body
-                        })
-
-                        return JSONResponse(result) if result else None
+                    endpoint = Service.build_endpoint(controller)
 
                     routes.append(Route(
                         path=path,
@@ -56,6 +48,19 @@ class Service(Starlette):
                     ))
 
         return routes
+
+    @staticmethod
+    def build_endpoint(controller):
+        async def endpoint(request):
+            result = await controller({
+                **request.scope['openapi'].parameters.path,
+                **request.scope['openapi'].parameters.query,
+                'body': request.scope['openapi'].body
+            })
+
+            return JSONResponse(result) if result else None
+
+        return endpoint
 
     @staticmethod
     def build_middleware(openapi):
