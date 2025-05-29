@@ -9,7 +9,7 @@ from openapi_core import OpenAPI
 from openapi_core.contrib.starlette.middlewares import StarletteOpenAPIMiddleware
 from starlette.applications import Starlette
 from starlette.middleware import Middleware
-from starlette.responses import JSONResponse
+from starlette.responses import JSONResponse, Response
 from starlette.routing import Route
 
 
@@ -58,7 +58,7 @@ class Service(Starlette):
                 'body': request.scope['openapi'].body
             })
 
-            return JSONResponse(result) if result else None
+            return JSONResponse(result) if result else Response()
 
         return endpoint
 
