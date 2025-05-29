@@ -11,6 +11,8 @@ pip install apifactory
 
 ## Usage
 
+For more detailed and complex examples, check the examples directory.
+
 ### ./spec.yml
 ```yaml
 openapi: 3.1.0
