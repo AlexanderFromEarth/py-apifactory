@@ -5,7 +5,13 @@ description = """
     Web framework for API-first development via OpenAPI specification with included validation according
     to OpenAPI based on Starlette, uvicorn and openapi-core.
 """
+readme = "README.md"
 requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE.md"]
+authors = [
+    {name = "Alexander Andreev", email = "alexanderfromearth@gmail.com"}
+]
 dependencies = [
     "aioitertools==0.12.0",
     "openapi-core==0.19.5",
