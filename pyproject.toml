@@ -12,6 +12,7 @@ license-files = ["LICENSE.md"]
 authors = [
     {name = "Alexander Andreev", email = "alexanderfromearth@gmail.com"}
 ]
+urls = { repository = "https://github.com/AlexanderFromEarth/py-apifactory.git" }
 dependencies = [
     "aioitertools==0.12.0",
     "openapi-core==0.19.5",
